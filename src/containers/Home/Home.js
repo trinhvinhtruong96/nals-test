@@ -17,7 +17,6 @@ const Home = (props) => {
 
     useEffect(() => {
         props.onGetBlogs();
-        console.log("Mount");
     }, [])
 
     useEffect(() => {
@@ -34,7 +33,7 @@ const Home = (props) => {
 
     return (
         <Fragment>
-            <div className="container mt-3">
+            <div className="mt-3">
                 <div className="mb-3">
                     <SearchSortHeader searchText={articleCondition.search} order={articleCondition.order} />
                 </div>

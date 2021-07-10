@@ -5,7 +5,7 @@ import Home from "../containers/Home/Home";
 
 const pathRoute = {
     home: "/",
-    detail: "/detail",
+    detail: "/detail/:id",
     notFound: "/notfound",
     internalServerError: "/internalServerError",
 };

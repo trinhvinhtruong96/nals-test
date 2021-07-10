@@ -2,11 +2,17 @@ import React from 'react';
 import style from './BlogItem.module.css';
 import moment from 'moment';
 
-const BlogItem = ({ data, ...props }) => {
+const BlogItem = ({ data, click, ...props }) => {
 
     return (
         <li className={["media mb-3 pb-3 list-view-item align-items-stretch", style.listViewItem].join(" ")}>
-            <img src={data.image} className="col-4 mr-3" alt={data.title} />
+            <img
+                src={data.image}
+                className="col-4 mr-3 px-0"
+                alt={data.title}
+                style={{ cursor: "pointer" }}
+                onClick={click}
+            />
             <div className="media-body d-flex flex-column">
                 <h5 className="mt-0 mb-1">{data.title}</h5>
                 <p>{data.content}</p>

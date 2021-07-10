@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { pathRoute } from '../../../router/router';
 import Pagination from '../../UI/Pagination/Pagination';
 import BlogItem from './BlogItem/BlogItem';
 
@@ -7,6 +9,8 @@ const BlogItems = ({
     items,
     ...props
 }) => {
+    const history = useHistory();
+
     const [paginationData, setPaginationData] = useState({
         page: 1,
         limit: 12,
@@ -43,12 +47,11 @@ const BlogItems = ({
     return (
         <ul className="list-unstyled">
             {pageItems && pageItems.map((el, index) => (
-                <BlogItem key={index} data={el} />
+                <BlogItem key={index} data={el} click={() => history.push(pathRoute.detail.replace(":id", el.id))} />
             )
             )}
             {items.length !== 0 && <Pagination data={paginationData} onPageChange={pageChangeHandler} />}
             {items.length === 0 && <h1 className="text-center text-black-50">No Article</h1>}
-
         </ul>
     );
 };
