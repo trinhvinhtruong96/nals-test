@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
+import Header from '../../components/Navigation/Header/Header';
 
 const Layout = (props) => {
     return (
         <Fragment>
-            <main className="mt-5">{props.children}</main>
+            <Header />
+            <main>{props.children}</main>
         </Fragment>
-
     );
 };
 

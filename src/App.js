@@ -1,14 +1,19 @@
 import React, { Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import detail from './containers/Detail';
-import home from './containers/Home';
 import Layout from './hoc/Layouts/Layout';
+import { route } from "./router/router"
 
 const App = () => {
   const routes = (
     <Switch>
-      <Route path="/" exact component={home} />
-      <Route path="/detail" exact component={detail} />
+      {route.map((el, index) => (
+        <Route
+          key={index}
+          path={el.path}
+          exact={el.exact}
+          component={el.main}
+        />
+      ))}
       <Redirect to="/" />
     </Switch>
   );

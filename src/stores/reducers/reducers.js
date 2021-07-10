@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import messageBox from './message-box';
+import blogs from './blogs';
 
 const createRootReducer = () => combineReducers({
-    messageBox,
+    blogs,
 });
 
 export default createRootReducer;
