@@ -19,7 +19,7 @@ const Header = (props) => {
         <Fragment>
             <nav className="navbar navbar-dark bg-dark fixed-top">
                 <p className="navbar-brand mb-0" style={{ cursor: "pointer" }} onClick={() => history.push(pathRoute.home)}>Navbar</p>
-                <form className="form-inline" style={{ width: "40%" }}>
+                <form className="form-inline flex-nowrap" style={{ width: "40%" }}>
                     <input
                         className="form-control mr-2 col-10"
                         value={searchText}

@@ -7,13 +7,13 @@ export function* getBlogsStartSaga(action) {
         console.log("action", action);
         const res = yield call(agent.Blogs.list, action.payload);
         if (!res) {
-            yield put(null);
+            yield put([]);
         } else {
             yield put(blogAction.getBlogsSuccess(res));
         }
 
     } catch (error) {
-        yield put(blogAction.getBlogsSuccess(null));
+        yield put(blogAction.getBlogsSuccess([]));
     }
 }
 

@@ -1,9 +1,13 @@
-import Detail from "../containers/Detail";
+import InternalServerError from "../components/Error/InternalServerError/InternalServerError";
+import NotFound from "../components/Error/NotFound/NotFound";
+import Detail from "../containers/Detail/Detail";
 import Home from "../containers/Home/Home";
 
 const pathRoute = {
     home: "/",
     detail: "/detail",
+    notFound: "/notfound",
+    internalServerError: "/internalServerError",
 };
 
 const route = [
@@ -16,6 +20,16 @@ const route = [
         path: pathRoute.detail,
         exact: true,
         main: () => <Detail />
+    },
+    {
+        path: pathRoute.notFound,
+        exact: true,
+        main: () => <NotFound />
+    },
+    {
+        path: pathRoute.internalServerError,
+        exact: true,
+        main: () => <InternalServerError />
     },
 ]
 

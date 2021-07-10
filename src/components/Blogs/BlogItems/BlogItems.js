@@ -46,8 +46,8 @@ const BlogItems = ({
                 <BlogItem key={index} data={el} />
             )
             )}
-            {items && <Pagination data={paginationData} onPageChange={pageChangeHandler} />}
-            {!items && <h1 className="text-center text-black-50">No Article</h1>}
+            {items.length !== 0 && <Pagination data={paginationData} onPageChange={pageChangeHandler} />}
+            {items.length === 0 && <h1 className="text-center text-black-50">No Article</h1>}
 
         </ul>
     );

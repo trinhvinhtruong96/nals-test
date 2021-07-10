@@ -6,29 +6,27 @@ import SearchSortHeader from '../../components/UI/SearchSortHeader/SearchSortHea
 import { useLocation } from 'react-router-dom';
 import * as QueryString from "query-string";
 
-const defaultArticleCondition = {
-    search: null,
-    sortBy: null,
-    order: null
-}
-
 const Home = (props) => {
 
     const [articleCondition, setArticleCondition] = useState({
         search: null,
         sortBy: null,
-        order: null
+        order: "asc"
     });
     const location = useLocation();
 
     useEffect(() => {
-        props.onGetBlogs(articleCondition);
+        props.onGetBlogs();
+        console.log("Mount");
     }, [])
 
     useEffect(() => {
+        console.log("search change");
         const newArticleCondition = {
             ...articleCondition,
-            ...QueryString.parse(location.search)
+            search: QueryString.parse(location.search).search,
+            sortBy: QueryString.parse(location.search).sortBy,
+            order: QueryString.parse(location.search).order,
         }
         setArticleCondition(newArticleCondition);
         props.onGetBlogs(newArticleCondition);
@@ -38,7 +36,7 @@ const Home = (props) => {
         <Fragment>
             <div className="container mt-3">
                 <div className="mb-3">
-                    <SearchSortHeader searchText={articleCondition.search} />
+                    <SearchSortHeader searchText={articleCondition.search} order={articleCondition.order} />
                 </div>
                 <BlogItems items={props.blogs} />
             </div>
