@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { formatDay } from '../../shared/utility';
 import * as blogAction from "../../stores/actions/blogs";
 
 const Detail = ({
@@ -24,7 +25,7 @@ const Detail = ({
                         <div className="card-body">
                             <h5 className="card-title">{article.title}</h5>
                             <p className="card-text">{article.content}</p>
-                            <p className="card-text"><small className="text-muted">{moment(article.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}</small></p>
+                            <p className="card-text"><small className="text-muted">{formatDay(article.createdAt, "dddd, MMMM Do YYYY, h:mm:ss a")}</small></p>
                         </div>
                     </div >
                 ) : <h1 className="text-center text-black-50">Article Not Available!</h1>}

@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './BlogItem.module.css';
 import moment from 'moment';
+import { formatDay } from '../../../../shared/utility';
 
 const BlogItem = ({ data, click, ...props }) => {
 
@@ -16,7 +17,7 @@ const BlogItem = ({ data, click, ...props }) => {
             <div className="media-body d-flex flex-column">
                 <h5 className="mt-0 mb-1">{data.title}</h5>
                 <p>{data.content}</p>
-                <h6 className="text-black-50 mt-auto ml-auto">{moment(data.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}</h6>
+                <small className="text-muted mt-auto ml-auto">{formatDay(data.createdAt, "dddd, MMMM Do YYYY, h:mm:ss a")}</small>
             </div>
 
         </li>
