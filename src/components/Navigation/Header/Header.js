@@ -10,8 +10,7 @@ const Header = (props) => {
     }
     const searchHandler = (e) => {
         e.preventDefault();
-        console.log("searchHandler");
-        const searchString = searchText ? "?search=" + searchText : "";
+        const searchString = "?search=" + searchText;
         const searchPath = pathRoute.home + searchString;
         setSearchText("");
         history.push(searchPath);

@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
-
+import { useHistory, useLocation } from 'react-router-dom';
+import * as QueryString from "query-string";
 
 const SearchSortHeader = (props) => {
-    const [sortType, setSortType] = useState("Sort");
+    const [sortType, setSortType] = useState("Newest");
+    const history = useHistory();
+    const location = useLocation();
 
     const handlerSortNewest = () => {
+        let searchText = QueryString.parse(location.search).search;
+        searchText ? searchText = searchText : searchText = "";
+        const searchString = "?search=" + searchText + "&sortBy=createdAt&order=desc";
+        const searchPath = location.pathname + searchString
         setSortType("Newest");
+        history.push(searchPath);
     }
 
     const handlerSortOldest = () => {
+        let searchText = QueryString.parse(location.search).search;
+        searchText ? searchText = searchText : searchText = "";
+        const searchString = "?search=" + searchText + "&sortBy=createdAt&order=asc";
+        const searchPath = location.pathname + searchString;
         setSortType("Oldest");
+        history.push(searchPath);
     }
     return (
         <div className="bg-dark text-white p-2 d-flex align-items-center" >

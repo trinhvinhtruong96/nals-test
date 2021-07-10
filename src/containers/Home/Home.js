@@ -7,12 +7,18 @@ import { useLocation } from 'react-router-dom';
 import * as QueryString from "query-string";
 
 const defaultArticleCondition = {
-    search: null
+    search: null,
+    sortBy: null,
+    order: null
 }
 
 const Home = (props) => {
 
-    const [articleCondition, setArticleCondition] = useState(defaultArticleCondition);
+    const [articleCondition, setArticleCondition] = useState({
+        search: null,
+        sortBy: null,
+        order: null
+    });
     const location = useLocation();
 
     useEffect(() => {
@@ -21,7 +27,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const newArticleCondition = {
-            ...defaultArticleCondition,
+            ...articleCondition,
             ...QueryString.parse(location.search)
         }
         setArticleCondition(newArticleCondition);
