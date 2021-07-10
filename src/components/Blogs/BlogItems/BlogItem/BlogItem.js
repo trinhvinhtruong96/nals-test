@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './BlogItem.module.css';
-import moment from 'moment';
 import { formatDay } from '../../../../shared/utility';
 
 const BlogItem = ({ data, click, ...props }) => {
