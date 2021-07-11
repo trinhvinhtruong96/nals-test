@@ -19,7 +19,7 @@
         "unused-imports"
     ],
     "rules": {
-        "react/prop-types": "off",
+        "react/require-default-props": "off",
         "import/no-extraneous-dependencies": "off",
         "max-len": "off",
         "import/no-cycle": "off",

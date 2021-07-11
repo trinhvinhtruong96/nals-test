@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import * as QueryString from 'query-string';
@@ -40,6 +41,11 @@ const Home = ({ onGetBlogs, blogs }) => {
       </div>
     </>
   );
+};
+
+Home.propTypes = {
+  blogs: PropTypes.instanceOf(Array),
+  onGetBlogs: PropTypes.func,
 };
 
 const mapStateToProps = state => ({

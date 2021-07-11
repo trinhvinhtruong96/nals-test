@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import style from './BlogItem.module.css';
 import { formatDay } from '../../../../shared/utility';
 
@@ -19,5 +20,10 @@ const BlogItem = ({ data, click }) => (
 
   </li>
 );
+
+BlogItem.propTypes = {
+  data: PropTypes.instanceOf(Object),
+  click: PropTypes.func,
+};
 
 export default BlogItem;

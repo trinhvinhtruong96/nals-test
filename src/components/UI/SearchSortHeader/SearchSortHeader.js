@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
 import * as QueryString from 'query-string';
 
@@ -47,6 +48,11 @@ const SearchSortHeader = ({ searchText, order }) => {
       </div>
     </div>
   );
+};
+
+SearchSortHeader.propTypes = {
+  order: PropTypes.string,
+  searchText: PropTypes.string,
 };
 
 export default SearchSortHeader;

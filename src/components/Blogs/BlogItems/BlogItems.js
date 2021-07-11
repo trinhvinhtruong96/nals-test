@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { pathRoute } from '../../../router/router';
 import Pagination from '../../UI/Pagination/Pagination';
@@ -53,6 +54,10 @@ const BlogItems = ({
       {items.length === 0 && <h1 className="text-center text-black-50">No Article</h1>}
     </ul>
   );
+};
+
+BlogItems.propTypes = {
+  items: PropTypes.instanceOf(Array),
 };
 
 export default BlogItems;
