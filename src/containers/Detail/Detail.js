@@ -8,7 +8,6 @@ import * as blogAction from '../../stores/actions/blogs';
 const Detail = ({
   article,
   onGetArticleDetail,
-  ...props
 }) => {
   const params = useParams();
 

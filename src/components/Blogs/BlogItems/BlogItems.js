@@ -5,9 +5,7 @@ import Pagination from '../../UI/Pagination/Pagination';
 import BlogItem from './BlogItem/BlogItem';
 
 const BlogItems = ({
-  data,
   items,
-  ...props
 }) => {
   const history = useHistory();
 

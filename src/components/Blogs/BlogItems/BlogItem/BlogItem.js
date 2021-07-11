@@ -2,7 +2,7 @@ import React from 'react';
 import style from './BlogItem.module.css';
 import { formatDay } from '../../../../shared/utility';
 
-const BlogItem = ({ data, click, ...props }) => (
+const BlogItem = ({ data, click }) => (
   <li className={['media mb-3 pb-3 list-view-item align-items-stretch', style.listViewItem].join(' ')}>
     <img
       src={data.image}

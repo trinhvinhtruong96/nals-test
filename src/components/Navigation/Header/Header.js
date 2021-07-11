@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router';
 import { pathRoute } from '../../../router/router';
 
-const Header = (props) => {
+const Header = () => {
   const [searchText, setSearchText] = useState('');
   const history = useHistory();
   const inputSearchChangeHandler = (event) => {
