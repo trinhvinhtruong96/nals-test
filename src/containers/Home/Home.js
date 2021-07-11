@@ -6,7 +6,7 @@ import * as blogAction from '../../stores/actions/blogs';
 import BlogItems from '../../components/Blogs/BlogItems/BlogItems';
 import SearchSortHeader from '../../components/UI/SearchSortHeader/SearchSortHeader';
 
-const Home = (props) => {
+const Home = ({ onGetBlogs, blogs }) => {
   const [articleCondition, setArticleCondition] = useState({
     search: null,
     sortBy: null,
@@ -16,11 +16,10 @@ const Home = (props) => {
   const location = useLocation();
 
   useEffect(() => {
-    props.onGetBlogs();
+    onGetBlogs();
   }, []);
 
   useEffect(() => {
-    console.log('search change');
     const newArticleCondition = {
       ...articleCondition,
       search: QueryString.parse(location.search).search,
@@ -28,7 +27,7 @@ const Home = (props) => {
       order: QueryString.parse(location.search).order,
     };
     setArticleCondition(newArticleCondition);
-    props.onGetBlogs(newArticleCondition);
+    onGetBlogs(newArticleCondition);
   }, [location.search]);
 
   return (
@@ -37,7 +36,7 @@ const Home = (props) => {
         <div className="mb-3">
           <SearchSortHeader searchText={articleCondition.search} order={articleCondition.order} />
         </div>
-        <BlogItems items={props.blogs} />
+        <BlogItems items={blogs} />
       </div>
     </>
   );

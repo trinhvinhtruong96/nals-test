@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pagination = ({ data, onPageChange, ...props }) => {
+const Pagination = ({ data, onPageChange }) => {
   let pageStart = 1;
   const pageArray = Array(data.pageNum)
     .fill()
@@ -12,7 +12,7 @@ const Pagination = ({ data, onPageChange, ...props }) => {
           <p className="page-link" aria-disabled="true">Previous</p>
         </li>
         {pageArray.map((el, index) => (
-          <li key={index} className={data.page === index + 1 ? 'page-item active' : 'page-item'} onClick={() => onPageChange(index + 1)}>
+          <li key={el} className={data.page === index + 1 ? 'page-item active' : 'page-item'} onClick={() => onPageChange(index + 1)}>
             <p className="page-link">
               {index + 1}
               {' '}

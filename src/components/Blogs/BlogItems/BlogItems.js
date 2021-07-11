@@ -48,8 +48,8 @@ const BlogItems = ({
 
   return (
     <ul className="list-unstyled">
-      {pageItems && pageItems.map((el, index) => (
-        <BlogItem key={index} data={el} click={() => history.push(pathRoute.detail.replace(':id', el.id))} />
+      {pageItems && pageItems.map((el) => (
+        <BlogItem key={el.id} data={el} click={() => history.push(pathRoute.detail.replace(':id', el.id))} />
       ))}
       {items.length !== 0 && <Pagination data={paginationData} onPageChange={pageChangeHandler} />}
       {items.length === 0 && <h1 className="text-center text-black-50">No Article</h1>}

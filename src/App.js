@@ -6,9 +6,9 @@ import { route } from './router/router';
 const App = () => {
   const routes = (
     <Switch>
-      {route.map((el, index) => (
+      {route.map((el) => (
         <Route
-          key={index}
+          key={el.path}
           path={el.path}
           exact={el.exact}
           component={el.main}

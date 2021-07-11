@@ -2,22 +2,22 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import * as QueryString from 'query-string';
 
-const SearchSortHeader = (props) => {
+const SearchSortHeader = ({ searchText, order }) => {
   const history = useHistory();
   const location = useLocation();
 
   const handlerSortNewest = () => {
-    let searchText = QueryString.parse(location.search).search;
-    if (!searchText) searchText = '';
-    const searchString = `?search=${searchText}&sortBy=createdAt&order=desc`;
+    let searchParam = QueryString.parse(location.search).search;
+    if (!searchParam) searchParam = '';
+    const searchString = `?search=${searchParam}&sortBy=createdAt&order=desc`;
     const searchPath = location.pathname + searchString;
     history.push(searchPath);
   };
 
   const handlerSortOldest = () => {
-    let searchText = QueryString.parse(location.search).search;
-    if (!searchText) searchText = '';
-    const searchString = `?search=${searchText}&sortBy=createdAt&order=asc`;
+    let searchParam = QueryString.parse(location.search).search;
+    if (!searchParam) searchParam = '';
+    const searchString = `?search=${searchParam}&sortBy=createdAt&order=asc`;
     const searchPath = location.pathname + searchString;
     history.push(searchPath);
   };
@@ -30,15 +30,15 @@ const SearchSortHeader = (props) => {
 
   return (
     <div className="bg-dark text-white p-2 d-flex align-items-center">
-      {props.searchText ? (
+      {searchText ? (
         <p className="mr-auto mb-0" style={wordBreakStyle}>
           Result for
-          <strong>{` ${props.searchText}`}</strong>
+          <strong>{` ${searchText}`}</strong>
         </p>
       ) : <div className="mr-auto" />}
       <div className="dropdown">
         <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {props.order === 'desc' ? 'Newest' : (props.order === 'asc' ? 'Oldest' : 'Sort')}
+          {order === 'desc' ? 'Newest' : (order === 'asc' ? 'Oldest' : 'Sort')}
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <p className="dropdown-item" onClick={handlerSortNewest}>Newest</p>

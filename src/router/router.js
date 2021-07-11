@@ -1,3 +1,4 @@
+import React from 'react';
 import InternalServerError from '../components/Error/InternalServerError/InternalServerError';
 import NotFound from '../components/Error/NotFound/NotFound';
 import Detail from '../containers/Detail/Detail';
