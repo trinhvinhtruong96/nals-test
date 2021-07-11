@@ -33,10 +33,12 @@ const BlogItems = ({
     }
 
     useEffect(() => {
+        const page = 1;
         const pageNum = Math.ceil(items.length / paginationData.limit);
         setPaginationData({
             ...paginationData,
-            pageNum
+            pageNum,
+            page
         })
     }, [items])
 

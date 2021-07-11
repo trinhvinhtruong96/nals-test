@@ -7,12 +7,12 @@ import { useLocation } from 'react-router-dom';
 import * as QueryString from "query-string";
 
 const Home = (props) => {
-
     const [articleCondition, setArticleCondition] = useState({
         search: null,
         sortBy: null,
         order: "asc"
     });
+
     const location = useLocation();
 
     useEffect(() => {
