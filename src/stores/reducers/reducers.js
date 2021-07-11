@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import blogs from './blogs';
 
 const createRootReducer = () => combineReducers({
-    blogs,
+  blogs,
 });
 
 export default createRootReducer;

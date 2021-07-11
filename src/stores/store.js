@@ -7,19 +7,18 @@ import mySaga from './sagas/sagas';
 const sagaMiddleware = createSagaMiddleware();
 
 function reduxStore(initialState) {
-    const store = createStore(
-        createRootReducer(),
-        initialState,
-        compose(
-            applyMiddleware(sagaMiddleware),
-            window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f,
-        ),
-    );
+  const store = createStore(
+    createRootReducer(),
+    initialState,
+    compose(
+      applyMiddleware(sagaMiddleware),
+      window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f,
+    ),
+  );
 
-
-    // then run the saga
-    sagaMiddleware.run(mySaga);
-    return store;
+  // then run the saga
+  sagaMiddleware.run(mySaga);
+  return store;
 }
 
 export default reduxStore;

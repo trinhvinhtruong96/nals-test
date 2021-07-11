@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Layout from './hoc/Layouts/Layout';
-import { route } from "./router/router"
+import { route } from './router/router';
 
 const App = () => {
   const routes = (

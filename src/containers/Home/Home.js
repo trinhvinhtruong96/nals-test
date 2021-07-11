@@ -1,61 +1,57 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import * as blogAction from "../../stores/actions/blogs";
 import { connect } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import * as QueryString from 'query-string';
+import * as blogAction from '../../stores/actions/blogs';
 import BlogItems from '../../components/Blogs/BlogItems/BlogItems';
 import SearchSortHeader from '../../components/UI/SearchSortHeader/SearchSortHeader';
-import { useLocation } from 'react-router-dom';
-import * as QueryString from "query-string";
 
 const Home = (props) => {
-    const [articleCondition, setArticleCondition] = useState({
-        search: null,
-        sortBy: null,
-        order: "asc"
-    });
+  const [articleCondition, setArticleCondition] = useState({
+    search: null,
+    sortBy: null,
+    order: 'asc',
+  });
 
-    const location = useLocation();
+  const location = useLocation();
 
-    useEffect(() => {
-        props.onGetBlogs();
-    }, [])
+  useEffect(() => {
+    props.onGetBlogs();
+  }, []);
 
-    useEffect(() => {
-        console.log("search change");
-        const newArticleCondition = {
-            ...articleCondition,
-            search: QueryString.parse(location.search).search,
-            sortBy: QueryString.parse(location.search).sortBy,
-            order: QueryString.parse(location.search).order,
-        }
-        setArticleCondition(newArticleCondition);
-        props.onGetBlogs(newArticleCondition);
-    }, [location.search])
-
-    return (
-        <Fragment>
-            <div className="mt-3">
-                <div className="mb-3">
-                    <SearchSortHeader searchText={articleCondition.search} order={articleCondition.order} />
-                </div>
-                <BlogItems items={props.blogs} />
-            </div>
-        </Fragment>
-    );
-};
-
-const mapStateToProps = state => {
-    return {
-        blogs: state.blogs.list
+  useEffect(() => {
+    console.log('search change');
+    const newArticleCondition = {
+      ...articleCondition,
+      search: QueryString.parse(location.search).search,
+      sortBy: QueryString.parse(location.search).sortBy,
+      order: QueryString.parse(location.search).order,
     };
+    setArticleCondition(newArticleCondition);
+    props.onGetBlogs(newArticleCondition);
+  }, [location.search]);
+
+  return (
+    <>
+      <div className="mt-3">
+        <div className="mb-3">
+          <SearchSortHeader searchText={articleCondition.search} order={articleCondition.order} />
+        </div>
+        <BlogItems items={props.blogs} />
+      </div>
+    </>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onGetBlogs: (condition) => dispatch(blogAction.getBlogsStart(condition)),
-    };
-};
+const mapStateToProps = state => ({
+  blogs: state.blogs.list,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onGetBlogs: (condition) => dispatch(blogAction.getBlogsStart(condition)),
+});
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps,
 )(Home);
