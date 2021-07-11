@@ -5,10 +5,10 @@ import Detail from '../containers/Detail/Detail';
 import Home from '../containers/Home/Home';
 
 const pathRoute = {
-  home: '/',
-  detail: '/detail/:id',
-  notFound: '/notfound',
-  internalServerError: '/internalServerError',
+  home: '/nals-test',
+  detail: '/nals-test/detail/:id',
+  notFound: '/nals-test/notfound',
+  internalServerError: '/nals-test/internalServerError',
 };
 
 const route = [
