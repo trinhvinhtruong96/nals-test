@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nals-test/static/css/main.e0db5210.chunk.css",
-    "main.js": "/nals-test/static/js/main.76e442d2.chunk.js",
-    "main.js.map": "/nals-test/static/js/main.76e442d2.chunk.js.map",
+    "main.js": "/nals-test/static/js/main.f6001346.chunk.js",
+    "main.js.map": "/nals-test/static/js/main.f6001346.chunk.js.map",
     "runtime-main.js": "/nals-test/static/js/runtime-main.f864b6a1.js",
     "runtime-main.js.map": "/nals-test/static/js/runtime-main.f864b6a1.js.map",
     "static/js/2.704a290d.chunk.js": "/nals-test/static/js/2.704a290d.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f864b6a1.js",
     "static/js/2.704a290d.chunk.js",
     "static/css/main.e0db5210.chunk.css",
-    "static/js/main.76e442d2.chunk.js"
+    "static/js/main.f6001346.chunk.js"
   ]
 }
