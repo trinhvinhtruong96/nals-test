@@ -19,6 +19,7 @@
         "unused-imports"
     ],
     "rules": {
+        "linebreak-style": "off",
         "react/require-default-props": "off",
         "import/no-extraneous-dependencies": "off",
         "max-len": "off",
